@@ -22,28 +22,24 @@ namespace PhotoApp.Controllers
         public PhotosController(ApplicationDbContext context, IUserInterface userInterface)
         {
             _context = context;
-         
+       
             _userService = userInterface;
-
-
         }   
 
         // GET: Photos
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Photos.ToListAsync());
+            return View(_userService.GetPhotos());
         }
 
         // GET: Photos/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            var photo = await _context.Photos
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var photo =  _userService.GetPhotoById(id);
             if (photo == null)
             {
                 return NotFound();
@@ -93,7 +89,7 @@ namespace PhotoApp.Controllers
                 return NotFound();
             }
 
-            var photo = await _context.Photos.FindAsync(id);
+            var photo = _userService.GetPhotoById(id);
             if (photo == null)
             {
                 return NotFound();
@@ -137,15 +133,14 @@ namespace PhotoApp.Controllers
         }
 
         // GET: Photos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var photo = await _context.Photos
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var photo = _userService.GetPhotoById(id);
             if (photo == null)
             {
                 return NotFound();
@@ -159,7 +154,7 @@ namespace PhotoApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var photo = await _context.Photos.FindAsync(id);
+            var photo = _userService.GetPhotoById(id);
             _context.Photos.Remove(photo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

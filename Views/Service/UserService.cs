@@ -14,12 +14,26 @@ namespace PhotoApp
     {
         
         private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly ApplicationDbContext _context;
 
-        public UserService(IWebHostEnvironment hostEnvironment)
+
+        public UserService(IWebHostEnvironment hostEnvironment, ApplicationDbContext dbContext)
         {
            
             webHostEnvironment = hostEnvironment;
+            _context = dbContext;
         }
+
+        public Photo GetPhotoById(int?id)
+        {
+            return  _context.Photos.Find(id);
+        }
+
+        public List<Photo> GetPhotos()
+        {
+            return _context.Photos.ToList();
+        }
+
         public string UploadedFile(PhotoViewModel photoViewModel)
         {
             string uniqueFileName = null;
