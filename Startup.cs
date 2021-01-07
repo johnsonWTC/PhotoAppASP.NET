@@ -12,6 +12,7 @@ using PhotoApp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PhotoApp.Views.Service.Interface;
 
 namespace PhotoApp
 {
@@ -34,6 +35,7 @@ namespace PhotoApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddScoped<IUserInterface, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

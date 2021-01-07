@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Yb2OxwEmWFPLXEIxOJfVnIlYKFO+BnS8P4Cdoj8Tb7f1UA7zVeZvfUrJaOv6Gb51A6kz+Qo5EVOUt7GSxP/xRQ==",
+  "dgSpecHash": "IfkockeASFVK+iSnIcV3iRrZKU6w5pnIaGyVpvg2uh/EsIH65gtxaHi2Z+ZlJiYdPCT5pJaCccqNgZEly0AhJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jdubula\\Desktop\\photoApp\\PhotoApp.csproj",
+  "projectFilePath": "C:\\Users\\jdubula\\Desktop\\identity\\PhotoApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jdubula\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.8\\microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",
     "C:\\Users\\jdubula\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.8\\microsoft.aspnetcore.cryptography.keyderivation.3.1.8.nupkg.sha512",

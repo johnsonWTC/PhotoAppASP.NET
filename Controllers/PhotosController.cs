@@ -9,23 +9,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PhotoApp.Data;
 using PhotoApp.Models;
+using PhotoApp.Views.Service.Interface;
 
 namespace PhotoApp.Controllers
 {
     public class PhotosController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly IUserInterface _userService;
      
 
-        public PhotosController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
+        public PhotosController(ApplicationDbContext context, IUserInterface userInterface)
         {
             _context = context;
-            webHostEnvironment = hostEnvironment;
-        }
+         
+            _userService = userInterface;
 
 
-    
+        }   
 
         // GET: Photos
         public async Task<IActionResult> Index()
@@ -66,7 +67,7 @@ namespace PhotoApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = UploadedFile(photoViewModel);
+                string uniqueFileName = _userService.UploadedFile(photoViewModel); 
                 Photo photo = new Photo();
                 photo.DateCreated = photoViewModel.DateCreated;
                 photo.Tittle = photoViewModel.Tittle;
@@ -82,22 +83,7 @@ namespace PhotoApp.Controllers
         }
 
 
-        private string UploadedFile(PhotoViewModel photoVewModel)
-        {
-            string uniqueFileName = null;
-
-            if (photoVewModel.ProfileImage != null)
-            {
-                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + photoVewModel.ProfileImage.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    photoVewModel.ProfileImage.CopyTo(fileStream);
-                }
-            }
-            return uniqueFileName;
-        }
+     
 
         // GET: Photos/Edit/5
         public async Task<IActionResult> Edit(int? id)

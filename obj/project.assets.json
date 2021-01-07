@@ -9194,11 +9194,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jdubula\\Desktop\\photoApp\\PhotoApp.csproj",
+      "projectUniqueName": "C:\\Users\\jdubula\\Desktop\\identity\\PhotoApp.csproj",
       "projectName": "PhotoApp",
-      "projectPath": "C:\\Users\\jdubula\\Desktop\\photoApp\\PhotoApp.csproj",
+      "projectPath": "C:\\Users\\jdubula\\Desktop\\identity\\PhotoApp.csproj",
       "packagesPath": "C:\\Users\\jdubula\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jdubula\\Desktop\\photoApp\\obj\\",
+      "outputPath": "C:\\Users\\jdubula\\Desktop\\identity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
