@@ -9,7 +9,8 @@ namespace PhotoApp.Models
 {
     public class Photo
     {
-        public int Id { get; set; }
+        [Key]
+        public int PhotoId { get; set; }  
         public string Tittle { get; set; }
 
         public DateTime DateCreated { get; set; }
@@ -18,5 +19,11 @@ namespace PhotoApp.Models
        
         [Required(ErrorMessage = "Please choose profile image")]
         public string ProfilePicture { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
+        public string Id { get; set; }
+
+
+
     }
 }

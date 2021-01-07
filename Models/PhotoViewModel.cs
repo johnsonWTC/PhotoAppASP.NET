@@ -20,5 +20,7 @@ namespace PhotoApp.Models
         [Required(ErrorMessage = "Please choose profile image")]
         [Display(Name = "Profile Picture")]
         public IFormFile ProfileImage { get; set; }
+
+        public string UserId { get; set; }
     }
 }

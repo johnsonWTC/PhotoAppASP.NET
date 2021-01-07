@@ -539,7 +539,6 @@ C:\Users\jdubula\Desktop\identity\bin\Debug\netcoreapp3.1\runtimes\win-x86\nativ
 C:\Users\jdubula\Desktop\identity\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\jdubula\Desktop\identity\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\jdubula\Desktop\identity\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.csprojAssemblyReference.cache
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.AssemblyInfoInputs.cache
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.AssemblyInfo.cs
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.csproj.CoreCompileInputs.cache
@@ -573,3 +572,9 @@ C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\staticwebassets\PhotoA
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.dll
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.pdb
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.genruntimeconfig.cache
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.csprojAssemblyReference.cache
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Photos1\Create.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Photos1\Delete.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Photos1\Details.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Photos1\Edit.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Photos1\Index.cshtml.g.cs

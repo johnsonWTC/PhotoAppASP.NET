@@ -1,64 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PhotoApp.Data;
 using PhotoApp.Models;
-using PhotoApp.Views.Service.Interface;
-using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
 
 namespace PhotoApp.Controllers
 {
-    public class PhotosController : Controller
+    public class Photos1Controller : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IPhotoInterface _userService;
 
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IHttpContextAccessor _httpContext;
-        private readonly string _userId;
-
-
-        
-
-
-            public PhotosController(ApplicationDbContext context, IPhotoInterface userInterface, UserManager<ApplicationUser> userManager, IHttpContextAccessor _httpContext)
+        public Photos1Controller(ApplicationDbContext context)
         {
-            this._httpContext = _httpContext;
-            _userManager = userManager;
             _context = context;
-            _userId = this._userManager.GetUserId(this._httpContext.HttpContext.User);
-            _userService = userInterface;
-        }   
-
-        // GET: Photos
-        public IActionResult Index()
-        {
-            var photos = _userService.GetPhotos();
-            List<Photo> myPics = new List<Photo>();
-            foreach(var pic in photos){
-                if(pic.Id == _userId){
-                    myPics.Add(pic);
-                }
-            }
-            return View(myPics);
         }
 
-        // GET: Photos/Details/5
-        public IActionResult Details(int? id)
+        // GET: Photos1
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Photos.ToListAsync());
+        }
+
+        // GET: Photos1/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-            var photo =  _userService.GetPhotoById(id);
+
+            var photo = await _context.Photos
+                .FirstOrDefaultAsync(m => m.PhotoId == id);
             if (photo == null)
             {
                 return NotFound();
@@ -67,52 +43,37 @@ namespace PhotoApp.Controllers
             return View(photo);
         }
 
-        // GET: Photos/Create
+        // GET: Photos1/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Photos/Create
+        // POST: Photos1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(PhotoViewModel photoViewModel)
+        public async Task<IActionResult> Create([Bind("PhotoId,Tittle,DateCreated,Likes,ProfilePicture")] Photo photo)
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = _userService.UploadedFile(photoViewModel);
-               
-                Photo photo = new Photo();
-                photo.DateCreated = photoViewModel.DateCreated;
-                photo.Tittle = photoViewModel.Tittle;
-                photo.ProfilePicture = uniqueFileName;
-                photo.Likes = photoViewModel.Likes;
-                photo.Id= _userId ;
-
-
-
-
                 _context.Add(photo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(photoViewModel);
+            return View(photo);
         }
 
-
-     
-
-        // GET: Photos/Edit/5
-        public IActionResult Edit(int? id)
+        // GET: Photos1/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var photo = _userService.GetPhotoById(id);
+            var photo = await _context.Photos.FindAsync(id);
             if (photo == null)
             {
                 return NotFound();
@@ -120,12 +81,12 @@ namespace PhotoApp.Controllers
             return View(photo);
         }
 
-        // POST: Photos/Edit/5
+        // POST: Photos1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PhotoId,Tittle,DateCreated,Likes")] Photo photo)
+        public async Task<IActionResult> Edit(int id, [Bind("PhotoId,Tittle,DateCreated,Likes,ProfilePicture")] Photo photo)
         {
             if (id != photo.PhotoId)
             {
@@ -155,15 +116,16 @@ namespace PhotoApp.Controllers
             return View(photo);
         }
 
-        // GET: Photos/Delete/5
-        public IActionResult Delete(int? id)
+        // GET: Photos1/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var photo = _userService.GetPhotoById(id);
+            var photo = await _context.Photos
+                .FirstOrDefaultAsync(m => m.PhotoId == id);
             if (photo == null)
             {
                 return NotFound();
@@ -172,12 +134,12 @@ namespace PhotoApp.Controllers
             return View(photo);
         }
 
-        // POST: Photos/Delete/5
+        // POST: Photos1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var photo = _userService.GetPhotoById(id);
+            var photo = await _context.Photos.FindAsync(id);
             _context.Photos.Remove(photo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

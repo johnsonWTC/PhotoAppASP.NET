@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PhotoApp.Views.Service.Interface
 {
-   public interface IUserInterface
+   public interface IPhotoInterface
     {
         string UploadedFile(PhotoViewModel photoViewModel);
         Photo GetPhotoById(int? id);

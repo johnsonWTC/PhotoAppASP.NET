@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PhotoApp
 {
-    public class UserService : IUserInterface
+    public class UserService : IPhotoInterface
     {
         
         private readonly IWebHostEnvironment webHostEnvironment;
