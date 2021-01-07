@@ -36,15 +36,38 @@
                     @*to only display edit delete and likes when you own the photo*@
 
 
-                    @if (item.ApplicationUser != null)
+                    @if (item.ApplicationUser != null && item.Likes !=null)
                     {
-                       
-                <div class="image-details">
-                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                    <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-                        @item.Likes.Count();
-                    </a>
-                    </div>
+                        @if (item.Id == userId)
+                        {
+                            <div class="image-details">
+                                <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                                @foreach (var like in item.Likes)
+                                {
+                                    if(like.PhotoLiker == userId)
+                                    {
+                                <a asp-action="UnLike" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                                    @item.Likes.Count();
+                                </a>
+                                    }
+                                    else
+                                    {
+                                <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                                    @item.Likes.Count();
+                                </a>
+                                    }
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="image-details">
+                                <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                                    @item.Likes.Count();
+                                </a>
+                            </div>
+
+                        }
                     }
                     else
                     {
@@ -56,7 +79,7 @@
 
 
 
-</td>
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
                 </td>
