@@ -29,6 +29,10 @@ namespace PhotoApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/Photos/Index", "");
+            });
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -37,7 +41,9 @@ namespace PhotoApp
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddScoped<IPhotoInterface, UserService>();
-            
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
