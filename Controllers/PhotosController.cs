@@ -102,7 +102,13 @@ namespace PhotoApp.Controllers
         }
 
 
-     
+        public IActionResult Follow()
+        {
+
+        }
+
+
+
 
         // GET: Photos/Edit/5
         public IActionResult Edit(int? id)
