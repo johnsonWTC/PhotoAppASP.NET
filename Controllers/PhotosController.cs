@@ -106,7 +106,7 @@ namespace PhotoApp.Controllers
         {
             var users = _context.Users.ToList();
 
-            return View();
+            return View(users);
         }
 
 
