@@ -7,5 +7,6 @@ namespace PhotoApp.Models
 {
     public class FollowViewModel
     {
+        public List<ApplicationUser> Users { get; set; }
     }
 }
