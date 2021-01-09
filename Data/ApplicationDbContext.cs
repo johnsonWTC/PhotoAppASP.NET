@@ -12,10 +12,8 @@ namespace PhotoApp.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-        }
-    
+        }  
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Follow> MyProperty { get; set; }
-
     }
 }

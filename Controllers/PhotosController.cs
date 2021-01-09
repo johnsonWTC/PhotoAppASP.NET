@@ -104,7 +104,7 @@ namespace PhotoApp.Controllers
 
         public IActionResult Follow()
         {
-
+            return View();
         }
 
 
