@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PhotoApp.Models.Follow>
+
+@{
+    ViewData["Title"] = "My photos";
+}
+
+<h1>My photos</h1>
+
+<p>
+    <a asp-action="Create">Add Photo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfilePicture)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Tittle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Likes)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @*<a asp-action="Details" asp-controller="Gallery" asp-route="@image.Id">
+                    <div class="gallery-image" style="background-image:url(@image.url)"></div>
+                    <span>@image.Title</span>
+                </a>*@
+
+                <img class="gallery-image" src="~/images/@item.ProfilePicture"
+                     asp-append-version="true" />
+                <div class="image-details">
+                <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                </div>
+
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Tittle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Likes)
+            </td>*@
+            
+        </tr>
+}
+    </tbody>
+</table>
