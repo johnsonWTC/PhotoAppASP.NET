@@ -104,6 +104,8 @@ namespace PhotoApp.Controllers
 
         public IActionResult Follow()
         {
+            var users = _context.Users.ToList();
+
             return View();
         }
 
