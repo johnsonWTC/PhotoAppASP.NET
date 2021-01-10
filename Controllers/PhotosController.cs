@@ -127,6 +127,12 @@ namespace PhotoApp.Controllers
         }
 
 
+        public IActionResult MyFollowers()
+        {
+            return View();
+        }
+
+
 
 
         // GET: Photos/Edit/5
