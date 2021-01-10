@@ -112,13 +112,17 @@ namespace PhotoApp.Controllers
         }
 
 
-        public IActionResult Follow(string id)
+        public void Follow(string id)
         {
             var follow = new Follow();
             follow.Followed = id;
             follow.Following = _userId;
             _context.Follows.Add(follow);
             _context.SaveChanges();
+        }
+
+        public IActionResult PeopleIFollow()
+        {
             return View();
         }
 
