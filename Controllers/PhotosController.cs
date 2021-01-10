@@ -130,6 +130,8 @@ namespace PhotoApp.Controllers
 
         public IActionResult MyFollowers()
         {
+            var followers = _context.Follows.Where(e => e.Followed == _userId).ToList();
+           
             return View();
         }
 
