@@ -112,8 +112,9 @@ namespace PhotoApp.Controllers
         }
 
 
-        public IActionResult Follow(int id)
+        public IActionResult Follow(string id)
         {
+            var follow = new Follow();
             return View();
         }
 

@@ -13,7 +13,12 @@
     <thead>
         <tr>
             <th>
-               User Name
+                User Name
+            </th>
+        </tr>
+        <tr>
+            <th>
+               Follow
             </th>
         </tr>
     </thead>
@@ -38,10 +43,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.DateCreated)
-            </td>
             <td>
+               
+                <a asp-action="Follow" asp-controller="Photos"asp-route-id="@item.Id">
+                    Follow
+                </a>
+            </td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Likes)
             </td>*@
             

@@ -577,4 +577,4 @@ C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Phatos\Fol
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Phatos\Follow\Delete.cshtml.g.cs
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Phatos\Follow\Details.cshtml.g.cs
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Phatos\Follow\Edit.cshtml.g.cs
-C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Photos\Follow.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Photos\MoreUsers.cshtml.g.cs
