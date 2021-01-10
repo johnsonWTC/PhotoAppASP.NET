@@ -123,6 +123,7 @@ namespace PhotoApp.Controllers
 
         public IActionResult PeopleIFollow()
         {
+            var followers = _context.Follows.Where(e => e.Following == _userId).ToList();
             return View();
         }
 
