@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PhotoApp.Models.FollowViewModel>
+﻿@model PhotoApp.Models.FollowViewModel
 
 @{
     ViewData["Title"] = "My photos";
@@ -13,42 +13,32 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.)
+               User Name
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Tittle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Likes)
-            </th>*@
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Users) {
         <tr>
-            <td>
-                @*<a asp-action="Details" asp-controller="Gallery" asp-route="@image.Id">
+            @*<td>
+                <a asp-action="Details" asp-controller="Gallery" asp-route="@item.Id">
                     <div class="gallery-image" style="background-image:url(@image.url)"></div>
                     <span>@image.Title</span>
-                </a>*@
+                </a>
 
-                <img class="gallery-image" src="~/images/@item.ProfilePicture"
+                <img class="gallery-image" src="~/images/@item.Email"
                      asp-append-version="true" />
                 <div class="image-details">
-                <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
+                    <a asp-action="Edit" asp-route-id="@item.">@item.UserName</a> |
                 <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
                 </div>
 
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             @*<td>
-                @Html.DisplayFor(modelItem => item.Tittle)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DateCreated)
             </td>
             <td>

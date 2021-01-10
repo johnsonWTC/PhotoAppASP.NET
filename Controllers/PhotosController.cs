@@ -102,11 +102,19 @@ namespace PhotoApp.Controllers
         }
 
 
-        public IActionResult Follow()
+        public IActionResult MoreUsers()
         {
             var users = _context.Users.ToList();
+            var followers = new FollowViewModel();
+            followers.Users = users;
 
-            return View(users);
+            return View(followers);
+        }
+
+
+        public IActionResult Follow(int id)
+        {
+            return View();
         }
 
 

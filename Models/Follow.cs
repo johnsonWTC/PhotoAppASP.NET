@@ -9,6 +9,6 @@ namespace PhotoApp.Models
     {
         public int FollowId { get; set; }
         public string Followed { get; set; }
-        public string following { get; set; }
+        public string Following { get; set; }
     }
 }
