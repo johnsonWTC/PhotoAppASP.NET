@@ -4,7 +4,7 @@
             ViewData["Title"] = "My photos";
         }
 
-        <h1>My Followers</h1>
+        <h1>Users I follow</h1>
 
         <p>
             <a asp-action="Create">Add Photo</a>
@@ -15,37 +15,53 @@
                     <th>
                         User Name
                     </th>
+               
+                    <th>
+                        Unfollow
+                    </th>
                 </tr>
 
             </thead>
             <tbody>
                 @foreach (var item in Model.Follows)
                 {
-                    <tr>
-                        @*<td>
-                                <a asp-action="Details" asp-controller="Gallery" asp-route="@item.Id">
-                                    <div class="gallery-image" style="background-image:url(@image.url)"></div>
-                                    <span>@image.Title</span>
-                                </a>
+                <tr>
+                    @*<td>
+            <a asp-action="Details" asp-controller="Gallery" asp-route="@item.Id">
+                <div class="gallery-image" style="background-image:url(@image.url)"></div>
+                <span>@image.Title</span>
+            </a>
 
-                                <img class="gallery-image" src="~/images/@item.Email"
-                                     asp-append-version="true" />
-                                <div class="image-details">
-                                    <a asp-action="Edit" asp-route-id="@item.">@item.UserName</a> |
-                                <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                                </div>
+            <img class="gallery-image" src="~/images/@item.Email"
+                 asp-append-version="true" />
+            <div class="image-details">
+                <a asp-action="Edit" asp-route-id="@item.">@item.UserName</a> |
+            <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+            </div>
 
-                            </td>*@
-                        <td>
-                            @Html.DisplayFor(modelItem => item.followedUserEmail)
-                        </td>
+        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.followedUserEmail)
+                    </td>
+
+                    <td>
+
+                        <a asp-action="UnFollow" asp-controller="Photos" asp-route-id="@item.Followed">
+                            UNFollow
+                        </a>
+                    </td>
+                  
+                </tr>
+                   
+                       
+
+                   
 
                         @*<td>
                                 @Html.DisplayFor(modelItem => item.Likes)
                             </td>*@
 
-                    </tr>
                 }
             </tbody>
         </table>

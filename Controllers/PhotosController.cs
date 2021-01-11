@@ -112,21 +112,28 @@ namespace PhotoApp.Controllers
         }
 
 
-        public void Follow(string id, string Email)
+        public void Follow(string id, string followUserName)
         {
             var follow = new Follow();
             follow.Followed = id;
             follow.Following = _userId;
-            follow.followedUserEmail = Email;
+            follow.followedUserEmail = followUserName;
             var applicationUser = _context.Users.FirstOrDefault(e => e.Id == _userId);
             follow.ApplicationUser = (ApplicationUser)applicationUser;
             _context.Follows.Add(follow);
+            _context.SaveChanges();
+        } 
+        public void UnFollow(string id)
+        {
+            var userToUnfollow = _context.Follows.Where(e => e.Followed == id).Where(s => s.Following == _userId).ToList();
+            _context.Follows.RemoveRange(userToUnfollow);
             _context.SaveChanges();
         }
 
         public IActionResult PeopleIFollow()
         {
-            var followering = _context.Follows.Where(e => e.Following == _userId) .Include(e=> e.ApplicationUser).Include(e => e.followedUserEmail).ToList();
+          
+            var followering = _context.Follows.Where(e => e.Following == _userId).Include(e => e.ApplicationUser).ToList();
             var follow = new FollowViewModel();
             follow.Follows = followering;
             return View(follow);
