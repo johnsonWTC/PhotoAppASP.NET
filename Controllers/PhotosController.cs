@@ -112,11 +112,12 @@ namespace PhotoApp.Controllers
         }
 
 
-        public void Follow(string id)
+        public void Follow(string id, string Email)
         {
             var follow = new Follow();
             follow.Followed = id;
             follow.Following = _userId;
+            follow.followedUserEmail = Email;
             var applicationUser = _context.Users.FirstOrDefault(e => e.Id == _userId);
             follow.ApplicationUser = (ApplicationUser)applicationUser;
             _context.Follows.Add(follow);
@@ -125,7 +126,7 @@ namespace PhotoApp.Controllers
 
         public IActionResult PeopleIFollow()
         {
-            var followering = _context.Follows.Where(e => e.Following == _userId).Include(e=> e.ApplicationUser).ToList();
+            var followering = _context.Follows.Where(e => e.Following == _userId) .Include(e=> e.ApplicationUser).Include(e => e.followedUserEmail).ToList();
             var follow = new FollowViewModel();
             follow.Follows = followering;
             return View(follow);

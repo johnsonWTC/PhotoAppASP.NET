@@ -45,7 +45,7 @@
             </td>
             <td>
                
-                <a asp-action="Follow" asp-controller="Photos"asp-route-id="@item.Id">
+                <a asp-action="Follow" asp-controller="Photos"asp-route-id="@item.Id" asp-route-followUserName="@item.Email">
                     Follow
                 </a>
             </td>
