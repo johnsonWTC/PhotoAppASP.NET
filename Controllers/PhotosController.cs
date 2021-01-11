@@ -125,8 +125,10 @@ namespace PhotoApp.Controllers
 
         public IActionResult PeopleIFollow()
         {
-            var followers = _context.Follows.Where(e => e.Following == _userId).ToList();
-            return View();
+            var following = _context.Follows.Where(e => e.Following == _userId).Include(e => e.ApplicationUser).ToList();
+            var follow = new FollowViewModel();
+            follow.Follows = following;
+            return View(follow);
         }
 
 
