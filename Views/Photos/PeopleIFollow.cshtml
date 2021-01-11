@@ -1,51 +1,51 @@
-﻿@model PhotoApp.Models.FollowViewModel
-
-@{
-    ViewData["Title"] = "My photos";
-}
-
-<h1>People I follow</h1>
-
-<p>
-    <a asp-action="Create">Add Photo</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                User Name
-            </th>
-        </tr>
-
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Follows)
-        {
-            <tr>
-                @*<td>
-                        <a asp-action="Details" asp-controller="Gallery" asp-route="@item.Id">
-                            <div class="gallery-image" style="background-image:url(@image.url)"></div>
-                            <span>@image.Title</span>
-                        </a>
-
-                        <img class="gallery-image" src="~/images/@item.Email"
-                             asp-append-version="true" />
-                        <div class="image-details">
-                            <a asp-action="Edit" asp-route-id="@item.">@item.UserName</a> |
-                        <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                        </div>
-
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
-                </td>
-
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Likes)
-                    </td>*@
-
-            </tr>
+﻿@model  PhotoApp.Models.FollowViewModel
+   
+        @{
+            ViewData["Title"] = "My photos";
         }
-    </tbody>
-</table>
+
+        <h1>My Followers</h1>
+
+        <p>
+            <a asp-action="Create">Add Photo</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        User Name
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Follows)
+                {
+                    <tr>
+                        @*<td>
+                                <a asp-action="Details" asp-controller="Gallery" asp-route="@item.Id">
+                                    <div class="gallery-image" style="background-image:url(@image.url)"></div>
+                                    <span>@image.Title</span>
+                                </a>
+
+                                <img class="gallery-image" src="~/images/@item.Email"
+                                     asp-append-version="true" />
+                                <div class="image-details">
+                                    <a asp-action="Edit" asp-route-id="@item.">@item.UserName</a> |
+                                <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                                </div>
+
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                        </td>
+
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Likes)
+                            </td>*@
+
+                    </tr>
+                }
+            </tbody>
+        </table>
