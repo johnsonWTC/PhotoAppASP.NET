@@ -9,5 +9,7 @@ namespace PhotoApp.Models
     public class ApplicationUser: IdentityUser
     {
         public List<Photo> Photos { get; set; }
+
+        public List<Follow> Follows { get; set; }
     }
 }

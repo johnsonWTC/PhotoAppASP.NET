@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhotoApp.Models
 {
-    public class FollowViewModel
+    public class UserListViewModel
     {
         public List<IdentityUser> Users { get; set; }
     }

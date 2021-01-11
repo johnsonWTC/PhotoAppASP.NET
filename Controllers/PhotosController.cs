@@ -133,7 +133,7 @@ namespace PhotoApp.Controllers
             var followers = _context.Follows.Where(e => e.Followed == _userId).ToList();
             var follow = new FollowViewModel();
             follow.Follows = followers;
-            return View(follow);
+            return View();
         }
 
 
