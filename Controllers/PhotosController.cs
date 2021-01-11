@@ -42,14 +42,23 @@ namespace PhotoApp.Controllers
         public IActionResult Index()
         {
             var photos = _userService.GetPhotos();
+            var followering = _context.Follows.Where(e => e.Following == _userId).ToList();
+            var peopleIseePhotosOf = new List<string>();
             List<Photo> myPics = new List<Photo>();
-            foreach(var pic in photos){
-                if(pic.Id == _userId){
+            foreach (var userIds in followering)
+            {
+                peopleIseePhotosOf.Add(userIds.Followed);
+            }
+
+            foreach (var pic in photos) {
+                if (peopleIseePhotosOf.Contains(pic.Id) || (pic.Id == _userId))
+                {
                     myPics.Add(pic);
                 }
+                //         if(pic.Id == _userId){
             }
             return View(myPics);
-        }
+            }
 
         // GET: Photos/Details/5
         public IActionResult Details(int? id)
