@@ -105,7 +105,7 @@ namespace PhotoApp.Controllers
         public IActionResult MoreUsers()
         {
             var users = _context.Users.ToList();
-            var followers = new FollowViewModel();
+            var followers = new UserListViewModel();
             followers.Users = users;
 
             return View(followers);
@@ -131,8 +131,9 @@ namespace PhotoApp.Controllers
         public IActionResult MyFollowers()
         {
             var followers = _context.Follows.Where(e => e.Followed == _userId).ToList();
-           
-            return View();
+            var follow = new FollowViewModel();
+            follow.Follows = followers;
+            return View(follow);
         }
 
 
