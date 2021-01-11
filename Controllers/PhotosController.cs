@@ -13,9 +13,11 @@ using PhotoApp.Views.Service.Interface;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PhotoApp.Controllers
 {
+    [Authorize]
     public class PhotosController : Controller
     {
         private readonly ApplicationDbContext _context;
