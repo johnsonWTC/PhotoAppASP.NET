@@ -43,6 +43,7 @@ namespace PhotoApp.Controllers
         // GET: Photos
         public IActionResult Index()
         {
+            @ViewData["user"] = _userId;
             var photos = _userService.GetPhotos();
             var followering = _context.Follows.Where(e => e.Following == _userId).ToList();
             var peopleIseePhotosOf = new List<string>();
