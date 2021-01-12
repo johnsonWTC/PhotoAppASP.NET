@@ -15,15 +15,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.ProfilePicture)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.Tittle)
-            </th>
             <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+            </th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.DateCreated)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Likes)
-            </th>*@
+            </th*@>
             <th></th>
         </tr>
     </thead>
@@ -45,10 +45,10 @@
                 </div>
 
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Tittle)
-            </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+            </td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.DateCreated)
             </td>
             <td>
