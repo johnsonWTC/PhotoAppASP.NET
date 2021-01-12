@@ -4,7 +4,7 @@
     ViewData["Title"] = "My photos";
     ViewData["user"] = "_userId";
     var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
-    var EmpCode = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value.ToString();
+    var userId = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value.ToString();
 }
 
 <h1>My photos</h1>
@@ -41,7 +41,7 @@
 
                 <img class="gallery-image" src="~/images/@item.ProfilePicture"
                      asp-append-version="true" />
-                @if(item.ApplicationUser != null && item.Id == @item.ApplicationUser.Id )
+                @if(item.ApplicationUser != null && item.Id == userId)
                 {
 
                 <div class="image-details">
