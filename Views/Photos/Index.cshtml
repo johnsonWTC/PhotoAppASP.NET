@@ -32,17 +32,21 @@
         <tr>
             <td>
                 @*<a asp-action="Details" asp-controller="Gallery" asp-route="@image.Id">
-                    <div class="gallery-image" style="background-image:url(@image.url)"></div>
-                    <span>@image.Title</span>
-                </a>*@
+            <div class="gallery-image" style="background-image:url(@image.url)"></div>
+            <span>@image.Title</span>
+        </a>*@
 
                 <img class="gallery-image" src="~/images/@item.ProfilePicture"
                      asp-append-version="true" />
+                @if(item.ApplicationUser != null && item.Id == @item.ApplicationUser.Id )
+                {
+
                 <div class="image-details">
-                <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
                 </div>
+                }
 
             </td>
             <td>
