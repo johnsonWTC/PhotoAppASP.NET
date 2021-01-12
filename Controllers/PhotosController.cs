@@ -94,15 +94,14 @@ namespace PhotoApp.Controllers
             if (ModelState.IsValid)
             {
                 string uniqueFileName = _userService.UploadedFile(photoViewModel);
-                ApplicationUser applicationUser = new ApplicationUser();
-               
                 Photo photo = new Photo();
                 photo.DateCreated = photoViewModel.DateCreated;
                 photo.Tittle = photoViewModel.Tittle;
                 photo.ProfilePicture = uniqueFileName;
                 photo.Likes = photoViewModel.Likes;
                 photo.Id= _userId ;
-                
+                photo.ApplicationUser = (ApplicationUser)_context.Users.FirstOrDefault(e => e.Id == _userId);
+
 
 
 
