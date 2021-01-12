@@ -101,11 +101,6 @@ namespace PhotoApp.Controllers
                 photo.Likes = photoViewModel.Likes;
                 photo.Id= _userId ;
                 photo.ApplicationUser = (ApplicationUser)_context.Users.FirstOrDefault(e => e.Id == _userId);
-
-
-
-
-
                 _context.Add(photo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

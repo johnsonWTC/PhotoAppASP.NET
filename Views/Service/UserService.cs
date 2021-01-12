@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using PhotoApp.Data;
 using PhotoApp.Models;
 using PhotoApp.Views.Service.Interface;
@@ -31,7 +32,7 @@ namespace PhotoApp
 
         public List<Photo> GetPhotos()
         {
-            return _context.Photos.ToList();
+            return _context.Photos.Include(e => e.ApplicationUser).ToList();
         }
 
         public string UploadedFile(PhotoViewModel photoViewModel)
