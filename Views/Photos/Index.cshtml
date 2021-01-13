@@ -21,12 +21,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.ApplicationUser.Email)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Likes)
-            </th*@
             <th></th>
         </tr>
     </thead>
@@ -34,10 +28,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @*<a asp-action="Details" asp-controller="Gallery" asp-route="@image.Id">
-            <div class="gallery-image" style="background-image:url(@image.url)"></div>
-            <span>@image.Title</span>
-        </a>*@
+          
 
                 <img class="gallery-image" src="~/images/@item.ProfilePicture"
                      asp-append-version="true" />
