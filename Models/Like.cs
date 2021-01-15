@@ -7,5 +7,6 @@ namespace PhotoApp.Models
 {
     public class Like
     {
+        public int LikeId { get; set; }
     }
 }
