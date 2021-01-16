@@ -10,6 +10,14 @@ namespace PhotoApp.Models
     {
         [Key]
         public int LikeId { get; set; }
-        public  string PostOwner { get; set; }
+        public  string PhotoOwner { get; set; }
+
+        public string PhotoLiker { get; set; }
+
+        public int PhotoId { get; set; }
+
+        public Photo Photo { get; set; }
+
+
     }
 }

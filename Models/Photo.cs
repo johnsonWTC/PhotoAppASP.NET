@@ -15,7 +15,7 @@ namespace PhotoApp.Models
 
         public DateTime DateCreated { get; set; }
 
-        public int Likes { get; set; }
+        public List<Like> Likes { get; set; }
        
         [Required(ErrorMessage = "Please choose profile image")]
         public string ProfilePicture { get; set; }
