@@ -32,7 +32,7 @@ namespace PhotoApp
 
         public List<Photo> GetPhotos()
         {
-            return _context.Photos.Include(e => e.ApplicationUser).ToList();
+            return _context.Photos.Include(e => e.ApplicationUser).Include(e => e.Likes).ToList();
         }
 
         public string UploadedFile(PhotoViewModel photoViewModel)
