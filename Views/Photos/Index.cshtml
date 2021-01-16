@@ -25,29 +25,46 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-          
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
 
-                <img class="gallery-image" src="~/images/@item.ProfilePicture"
-                     asp-append-version="true" />
-                @if(item.ApplicationUser != null && item.Id == userId)
-                {
 
-                <div class="image-details">
-                    <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PhotoId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                </div>
-                }
+                    <img class="gallery-image" src="~/images/@item.ProfilePicture"
+                         asp-append-version="true" />
+                    @*to only display edit delete and likes when you own the photo*@
 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
-            </td>
-            
-        </tr>
-}
+
+
+
+
+                    @if (item.ApplicationUser != null && item.Id == userId && @item.Likes != null)
+                    {
+
+                        <div class="image-details">
+                            <a>@item.Likes.Count Likes </a>|
+                            <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                        </div>
+                    }
+
+                    @if (item.ApplicationUser != null || @item.Likes == null)
+                    {
+
+                    }
+
+                    else 
+                    {
+                        <a asp-action="Likes" asp-route-id="@item.PhotoId">@item.Likes.Count Likes</a>
+                    }
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                </td>
+
+            </tr>
+        }
     </tbody>
 </table>

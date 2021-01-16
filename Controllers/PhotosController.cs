@@ -45,14 +45,22 @@ namespace PhotoApp.Controllers
         {
             @ViewData["user"] = _userId;
             var photos = _userService.GetPhotos();
+            // to get the list of users that we follow
             var followering = _context.Follows.Where(e => e.Following == _userId).ToList();
+
+            // create a list to store people i follow
             var peopleIseePhotosOf = new List<string>();
+
+            // to create a list to store photos of people i follow
             List<Photo> myPics = new List<Photo>();
+
+            // add id's of the people i follow to a list 
             foreach (var userIds in followering)
             {
                 peopleIseePhotosOf.Add(userIds.Followed);
             }
 
+            //check if the photos are from people i follow
             foreach (var pic in photos) {
                 if (peopleIseePhotosOf.Contains(pic.Id) || (pic.Id == _userId))
                 {
@@ -101,7 +109,7 @@ namespace PhotoApp.Controllers
                 photo.ProfilePicture = uniqueFileName;
                 photo.Likes = photoViewModel.Likes;
                 photo.Id= _userId ;
-                photo.ApplicationUser = (ApplicationUser)_context.Users.FirstOrDefault(e => e.Id == _userId);
+                photo.ApplicationUser = (ApplicationUser)_context.Users.FirstOrDefault(e => e.Id == _userId); 
                 _context.Add(photo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

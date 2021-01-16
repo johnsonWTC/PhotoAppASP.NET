@@ -11,5 +11,7 @@ namespace PhotoApp.Models
         public List<Photo> Photos { get; set; }
 
         public List<Follow> Follows { get; set; }
+
+        public int MyProperty { get; set; }
     }
 }
