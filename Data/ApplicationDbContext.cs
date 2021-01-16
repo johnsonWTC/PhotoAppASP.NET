@@ -16,6 +16,8 @@ namespace PhotoApp.Data
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Follow> Follows { get; set; }
 
+        public DbSet<Like> Likes { get; set; }
+
 
     }
 }
