@@ -39,25 +39,32 @@
 
 
 
-                    @if (item.ApplicationUser != null && item.Id == userId && @item.Likes != null)
+                    @if (item.ApplicationUser != null  && @item.Likes != null)
                     {
 
-                        <div class="image-details">
-                            <a>@item.Likes.Count Likes </a>|
-                            <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
-                            <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                        </div>
+                <div class="image-details">
+                    <a>@item.Likes.Count Likes </a>|
+                    <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                    <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                        Like
+                    </a>
+                </div>
                     }
 
-                    @if (item.ApplicationUser != null || @item.Likes == null)
+                    @*@if (item.ApplicationUser != null || @item.Likes == null)
                     {
 
                     }
 
-                    else 
+                    else
                     {
+                        <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                           Like
+                        </a>
+
                         <a asp-action="Likes" asp-route-id="@item.PhotoId">@item.Likes.Count Likes</a>
-                    }
+                    }*@
 
                 </td>
                 <td>

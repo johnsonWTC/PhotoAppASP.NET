@@ -138,7 +138,18 @@ namespace PhotoApp.Controllers
             follow.ApplicationUser = (ApplicationUser)applicationUser;
             _context.Follows.Add(follow);
             _context.SaveChanges();
-        } 
+        }
+
+
+        public void Like(int id, string photoOwner)
+        {
+            var like = new Like();
+            like.PhotoId = id;
+            like.PhotoLiker = _userId;
+            like.PhotoOwner = photoOwner;
+            _context.Likes.Add(like);
+            _context.SaveChanges();
+        }
         public void UnFollow(string id)
         {
             var userToUnfollow = _context.Follows.Where(e => e.Followed == id).Where(s => s.Following == _userId).ToList();
