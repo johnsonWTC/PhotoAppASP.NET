@@ -33,6 +33,7 @@ namespace PhotoApp.Controllers
 
             public PhotosController(ApplicationDbContext context, IPhotoInterface userInterface, UserManager<ApplicationUser> userManager, IHttpContextAccessor _httpContext)
         {
+            //dependacy injection
             this._httpContext = _httpContext;
             _userManager = userManager;
             _context = context;
@@ -45,10 +46,11 @@ namespace PhotoApp.Controllers
         {
             @ViewData["user"] = _userId;
             var photos = _userService.GetPhotos();
+
             // to get the list of users that we follow
             var followering = _context.Follows.Where(e => e.Following == _userId).ToList();
 
-            // create a list to store people i follow
+            // create a list   to store people I see Photos Of
             var peopleIseePhotosOf = new List<string>();
 
             // to create a list to store photos of people i follow
@@ -150,6 +152,19 @@ namespace PhotoApp.Controllers
             _context.Likes.Add(like);
             _context.SaveChanges();
         }
+
+        public void UnLike(int id, string photoOwner)
+        {
+            var like = new Like();
+            like.PhotoId = id;
+            like.PhotoLiker = _userId;
+            like.PhotoOwner = photoOwner;
+            _context.Likes.Remove(like);
+            _context.SaveChanges();
+        }
+
+
+
         public void UnFollow(string id)
         {
             var userToUnfollow = _context.Follows.Where(e => e.Followed == id).Where(s => s.Following == _userId).ToList();
