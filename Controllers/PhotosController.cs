@@ -153,14 +153,18 @@ namespace PhotoApp.Controllers
             _context.SaveChanges();
         }
 
-        public void UnLike(int id, string photoOwner)
+        public void UnLike(int ?id, string photoOwner)
         {
-            var like = new Like();
-            like.PhotoId = id;
-            like.PhotoLiker = _userId;
-            like.PhotoOwner = photoOwner;
+            if(id != null)
+            {
+            var like = _context.Likes.FirstOrDefault(e => e.LikeId == id);
+                if(like == null)
+                {
+                    return;
+                }
             _context.Likes.Remove(like);
             _context.SaveChanges();
+            }
         }
 
 

@@ -36,65 +36,27 @@
                     @*to only display edit delete and likes when you own the photo*@
 
 
-
-
-
                     @if (item.ApplicationUser != null)
                     {
-                        @foreach (var like in item.Likes)
-                        {
-                            if (like.PhotoLiker == item.Id)
-                            {
-                                <a asp-action="UnLike" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-                                </a>
-                                <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                                <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-                                    Like
-                                </a>
-
-                            }
-                            else
-                            {
-                                <div class="image-details">
-                                    <a>@item.Likes.Count Likes </a>|
-                                    <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                                    <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-                                        Like
-                                    </a>
-                                </div>
-
-                            }
-                        }
-
+                       
+                <div class="image-details">
+                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                    <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                        @item.Likes.Count();
+                    </a>
+                    </div>
                     }
                     else
                     {
-                        @foreach (var like in item.Likes)
-                        {
-                            if (like.PhotoLiker == item.Id)
-                            {
-                                <a asp-action="UnLike" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-                                </a>
-                            }
-                        }
+
                     }
 
-                    @*@if (item.ApplicationUser != null && item)
-        {
 
-        }
 
-        else
-        {
-            <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-               Like
-            </a>
 
-            <a asp-action="Likes" asp-route-id="@item.PhotoId">@item.Likes.Count Likes</a>
-        }*@
 
-                </td>
+
+</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
                 </td>
