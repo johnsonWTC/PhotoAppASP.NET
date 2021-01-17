@@ -55,6 +55,14 @@
                             }
                             else
                             {
+                                <div class="image-details">
+                                    <a>@item.Likes.Count Likes </a>|
+                                    <a asp-action="Edit" asp-route-id="@item.PhotoId">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
+                                    <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                                        Like
+                                    </a>
+                                </div>
 
                             }
                         }
