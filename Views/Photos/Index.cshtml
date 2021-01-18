@@ -5,6 +5,7 @@
     ViewData["user"] = "_userId";
     var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
     var userId = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value.ToString();
+    var isThere = false;
 }
 
 <h1>My photos</h1>
@@ -38,7 +39,7 @@
 
                     @if (item.ApplicationUser != null && item.Likes != null)
                     { 
-                        var isThere = false;
+                       
                         foreach( var liker in item.Likes)
                         {
                             if(liker.PhotoLiker == userId)
