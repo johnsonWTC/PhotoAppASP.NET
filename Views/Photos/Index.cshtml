@@ -37,11 +37,7 @@
 
 
                     @if (item.ApplicationUser != null && item.Likes != null)
-                    {
-                       
-
-@{ }
-                        var isThere = false;
+                    { var isThere = false;
                         foreach( var liker in item.Likes)
                         {
                             if(liker.PhotoLiker == userId)
