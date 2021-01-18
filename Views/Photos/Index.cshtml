@@ -38,8 +38,9 @@
 
 
                     @if (item.ApplicationUser != null && item.Likes != null)
-                    { 
-                       
+                    {
+                        isThere = false;
+
                         foreach( var liker in item.Likes)
                         {
                             if(liker.PhotoLiker == userId)
@@ -57,7 +58,7 @@
                     </a>
                     @if (isThere)
                     {
-                    <a asp-action="unl" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                    <a asp-action="UnLike" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
                         unlike
                     </a>
 
