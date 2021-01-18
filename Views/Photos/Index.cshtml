@@ -38,40 +38,18 @@
 
                     @if (item.ApplicationUser != null && item.Likes != null)
                     {
-                        @*@if (item.Id == userId)
-            {
-                <div class="image-details">
-                    <a asp-action="Delete" asp-route-id="@item.PhotoId">Delete</a>
-                    @foreach (var like in item.Likes)
-                    {
-                        if(like.PhotoLiker == userId)
+                       
+
+@{ }
+                        var isThere = false;
+                        foreach( var liker in item.Likes)
                         {
-                    <a asp-action="UnLike" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-                        @item.Likes.Count();
-                    </a>
-                        }
-                        else
-                        {
-                    <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
-                        @item.Likes.Count();
-                    </a>
+                            if(liker.PhotoLiker == userId)
+                            {
+                                isThere = true;
+                            }
                         }
                     }
-                </div>
-            }
-            else
-            {*@
-
-                            @{ 
-                                var isThere = false;
-                                foreach( var liker in item.Likes)
-                                {
-                                    if(liker.PhotoLiker == userId)
-                                    {
-                                        isThere = true;
-                                    }
-                                }
-                            }
                 <div class="image-details">
                     <h6>
                     </h6>
