@@ -158,7 +158,7 @@ namespace PhotoApp.Controllers
         {
             if(id != null)
             {
-            var like = _context.Likes.FirstOrDefault(e => e.LikeId == id);
+            var like = _context.Likes.FirstOrDefault(e => e.PhotoId == id);
                 if(like == null)
                 {
                     return;
