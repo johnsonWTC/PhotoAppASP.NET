@@ -6,6 +6,7 @@
     var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
     var userId = claimsIdentity.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value.ToString();
     var isThere = false;
+    int likeid;
 }
 
 <h1>My photos</h1>
@@ -43,6 +44,7 @@
 
                         foreach( var liker in item.Likes)
                         {
+
                             if(liker.PhotoLiker == userId)
                             {
                                 isThere = true;
@@ -66,6 +68,9 @@
                     else
                     {
 
+                    <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
+                        like
+                    </a>
                     <a asp-action="Like" asp-controller="Photos" asp-route-id="@item.PhotoId" asp-route-photoOwner="@item.Id">
                         like
                     </a>

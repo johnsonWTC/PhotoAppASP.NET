@@ -147,8 +147,6 @@ namespace PhotoApp.Controllers
         {
             var like = new Like();
             like.PhotoId = id;
-            
-           
             like.PhotoLiker = _userId;
             like.PhotoOwner = photoOwner;
             _context.Likes.Add(like);
