@@ -174,7 +174,7 @@ namespace PhotoApp.Controllers
 
 
 
-        public void UnFollow(string id)
+        public IActionResult UnFollow(string id)
         {
             var userToUnfollow = _context.Follows.Where(e => e.Followed == id).Where(s => s.Following == _userId).ToList();
             _context.Follows.RemoveRange(userToUnfollow);
