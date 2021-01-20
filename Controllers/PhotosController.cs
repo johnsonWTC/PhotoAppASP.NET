@@ -143,7 +143,7 @@ namespace PhotoApp.Controllers
         }
 
 
-        public void Like(int id, string photoOwner)
+        public IActionResult Like(int id, string photoOwner)
         {
             var like = new Like();
             like.PhotoId = id;
@@ -151,7 +151,9 @@ namespace PhotoApp.Controllers
             like.PhotoOwner = photoOwner;
             _context.Likes.Add(like);
             _context.SaveChanges();
-            
+
+            return RedirectToAction(nameof(Index));
+
         }
 
         public void UnLike(int ?id, string photoOwner)
