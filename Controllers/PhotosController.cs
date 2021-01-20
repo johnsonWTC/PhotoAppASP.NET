@@ -156,14 +156,15 @@ namespace PhotoApp.Controllers
 
         }
 
-        public void UnLike(int ?id, string photoOwner)
+        public IActionResult UnLike(int ?id, string photoOwner)
         {
             if(id != null)
             {
             var like = _context.Likes.FirstOrDefault(e => e.PhotoId == id);
                 if(like == null)
                 {
-                    return;
+            return RedirectToAction(nameof(Index));
+                   
                 }
             _context.Likes.Remove(like);
             _context.SaveChanges();
