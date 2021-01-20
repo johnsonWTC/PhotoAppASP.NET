@@ -130,7 +130,7 @@ namespace PhotoApp.Controllers
         }
 
 
-        public void Follow(string id, string followUserName)
+        public IActionResult Follow(string id, string followUserName)
         {
             var follow = new Follow();
             follow.Followed = id;
@@ -140,6 +140,7 @@ namespace PhotoApp.Controllers
             follow.ApplicationUser = (ApplicationUser)applicationUser;
             _context.Follows.Add(follow);
             _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
 
