@@ -168,6 +168,7 @@ namespace PhotoApp.Controllers
             _context.Likes.Remove(like);
             _context.SaveChanges();
             }
+            return RedirectToAction(nameof(Index));
         }
 
 
