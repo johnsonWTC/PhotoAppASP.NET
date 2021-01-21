@@ -154,7 +154,7 @@ namespace PhotoApp.Controllers
 
         public IActionResult Follow(string id, string followUserName)
         {
-            // when you click follow i create a new follow object
+            // when you click follow call i create a new follow object 
             var follow = new Follow();
             follow.Followed = id;
             follow.Following = _userId;
