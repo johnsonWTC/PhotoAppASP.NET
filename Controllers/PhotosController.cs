@@ -155,7 +155,7 @@ namespace PhotoApp.Controllers
         public IActionResult Follow(string id, string followUserName)
         {
             // when you click follow call  the follow method on the controller, pass id  and followUserEmail via asp-route 
-            //i create a new follow object 
+            //i create a new follow object, then use the id to find user on the db using first or default
             var follow = new Follow();
             follow.Followed = id;
             follow.Following = _userId;
