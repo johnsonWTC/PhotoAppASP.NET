@@ -123,15 +123,38 @@ namespace PhotoApp.Controllers
         public IActionResult MoreUsers()
         {
             var users = _context.Users.ToList();
-            var followers = new UserListViewModel();
-            followers.Users = users;
+            var finalList = new List<IdentityUser>();
+            var userId = new List<string>();
 
+            var followering = _context.Follows.Where(e => e.Following == _userId).Include(e => e.ApplicationUser).ToList();
+            var followers = new UserListViewModel();
+            if (followering.Count() == 0)
+            {
+                followers.Users = users;
+            }
+            else
+            {
+            foreach( var item in followering)
+            {
+                foreach(var items in users)
+                {
+                if(item.Following != items.Id && items.Id != _userId)
+                    {
+                        finalList.Add((items));
+                    }
+                }
+            }
+
+           
+            followers.Users = finalList;
+            }
             return View(followers);
         }
 
 
         public IActionResult Follow(string id, string followUserName)
         {
+            // when you click follow i create a new follow
             var follow = new Follow();
             follow.Followed = id;
             follow.Following = _userId;
@@ -140,7 +163,7 @@ namespace PhotoApp.Controllers
             follow.ApplicationUser = (ApplicationUser)applicationUser;
             _context.Follows.Add(follow);
             _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(MoreUsers));
         }
 
 
@@ -180,7 +203,7 @@ namespace PhotoApp.Controllers
             var userToUnfollow = _context.Follows.Where(e => e.Followed == id).Where(s => s.Following == _userId).ToList();
             _context.Follows.RemoveRange(userToUnfollow);
             _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(PeopleIFollow));
         }
 
         public IActionResult PeopleIFollow()
