@@ -172,8 +172,12 @@ namespace PhotoApp.Controllers
         }
 
 
+
         public IActionResult Like(int id, string photoOwner)
         {
+            // for the like functionality, i pass the id and photoOwner using asp-route, then crete a like object
+            // use the id and photoOwner to initiate the object
+            //then save like object
             var like = new Like();
             like.PhotoId = id;
             like.PhotoLiker = _userId;
