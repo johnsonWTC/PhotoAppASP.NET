@@ -102,6 +102,7 @@ namespace PhotoApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PhotoViewModel photoViewModel)
         {
+            // we used the photoViewModel to create a photo object
             if (ModelState.IsValid)
             {
                 string uniqueFileName = _userService.UploadedFile(photoViewModel);
@@ -122,6 +123,8 @@ namespace PhotoApp.Controllers
 
         public IActionResult MoreUsers()
         {
+            //List of users in the app
+            // stillnot working properly
             var users = _context.Users.ToList();
             var finalList = new List<IdentityUser>();
             var userId = new List<string>();
@@ -155,7 +158,8 @@ namespace PhotoApp.Controllers
         public IActionResult Follow(string id, string followUserName)
         {
             // when you click follow call  the follow method on the controller, pass id  and followUserEmail via asp-route 
-            //i create a new follow object, then use the id to find user on the db using first or default
+            //i create a new follow object, then use the id to find user on the db using first or default,
+            //then we add the follow object on the follows table
             var follow = new Follow();
             follow.Followed = id;
             follow.Following = _userId;
