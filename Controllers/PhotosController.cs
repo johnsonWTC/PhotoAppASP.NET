@@ -28,10 +28,10 @@ namespace PhotoApp.Controllers
         private readonly string _userId;
 
 
-        
 
 
-            public PhotosController(ApplicationDbContext context, IPhotoInterface userInterface, UserManager<ApplicationUser> userManager, IHttpContextAccessor _httpContext)
+
+        public PhotosController(ApplicationDbContext context, IPhotoInterface userInterface, UserManager<ApplicationUser> userManager, IHttpContextAccessor _httpContext)
         {
             //dependacy injection
             this._httpContext = _httpContext;
@@ -39,7 +39,7 @@ namespace PhotoApp.Controllers
             _context = context;
             _userId = this._userManager.GetUserId(this._httpContext.HttpContext.User);
             _userService = userInterface;
-        }   
+        }
 
         // GET: Photos
         public IActionResult Index()
@@ -63,7 +63,8 @@ namespace PhotoApp.Controllers
             }
 
             //check if the photos are from people i follow
-            foreach (var pic in photos) {
+            foreach (var pic in photos)
+            {
                 if (peopleIseePhotosOf.Contains(pic.Id) || (pic.Id == _userId))
                 {
                     myPics.Add(pic);
@@ -71,7 +72,7 @@ namespace PhotoApp.Controllers
                 //         if(pic.Id == _userId){
             }
             return View(myPics);
-            }
+        }
 
         // GET: Photos/Details/5
         public IActionResult Details(int? id)
@@ -80,7 +81,7 @@ namespace PhotoApp.Controllers
             {
                 return NotFound();
             }
-            var photo =  _userService.GetPhotoById(id);
+            var photo = _userService.GetPhotoById(id);
             if (photo == null)
             {
                 return NotFound();
@@ -111,8 +112,8 @@ namespace PhotoApp.Controllers
                 photo.Tittle = photoViewModel.Tittle;
                 photo.ProfilePicture = uniqueFileName;
                 photo.Likes = photoViewModel.Likes;
-                photo.Id= _userId ;
-                photo.ApplicationUser = (ApplicationUser)_context.Users.FirstOrDefault(e => e.Id == _userId); 
+                photo.Id = _userId;
+                photo.ApplicationUser = (ApplicationUser)_context.Users.FirstOrDefault(e => e.Id == _userId);
                 _context.Add(photo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -138,12 +139,12 @@ namespace PhotoApp.Controllers
 
             else
             {
-            foreach( var item in users)
-            {
-                foreach(var items in  followering)
+                foreach (var item in users)
                 {
-                if(item.Id != items.Following && items.Id != _userId)
+                    foreach (var items in followering)
                     {
+                        if (item.Id != items.Following && items.Id != _userId)
+                        {
                             if (finalList.Contains(item))
                             {
 
@@ -151,13 +152,13 @@ namespace PhotoApp.Controllers
                             else
                             {
 
-                        finalList.Add((item));
+                                finalList.Add((item));
                             }
+                        }
                     }
                 }
-            }
-           
-            followers.Users = finalList;
+
+                followers.Users = finalList;
             }
             return View(followers);
         }
@@ -197,18 +198,18 @@ namespace PhotoApp.Controllers
 
         }
 
-        public IActionResult UnLike(int ?id, string photoOwner)
+        public IActionResult UnLike(int? id, string photoOwner)
         {
-            if(id != null)
+            if (id != null)
             {
-            var like = _context.Likes.FirstOrDefault(e => e.PhotoId == id);
-                if(like == null)
+                var like = _context.Likes.FirstOrDefault(e => e.PhotoId == id);
+                if (like == null)
                 {
-            return RedirectToAction(nameof(Index));
-                   
+                    return RedirectToAction(nameof(Index));
+
                 }
-            _context.Likes.Remove(like);
-            _context.SaveChanges();
+                _context.Likes.Remove(like);
+                _context.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
         }
@@ -225,7 +226,7 @@ namespace PhotoApp.Controllers
 
         public IActionResult PeopleIFollow()
         {
-          
+
             var followering = _context.Follows.Where(e => e.Following == _userId).Include(e => e.ApplicationUser).ToList();
             var follow = new FollowViewModel();
             follow.Follows = followering;
@@ -235,7 +236,7 @@ namespace PhotoApp.Controllers
 
         public IActionResult MyFollowers()
         {
-            var followers = _context.Follows.Where(e => e.Followed == _userId).Include(e=> e.ApplicationUser).ToList();
+            var followers = _context.Follows.Where(e => e.Followed == _userId).Include(e => e.ApplicationUser).ToList();
             var follow = new FollowViewModel();
             follow.Follows = followers;
             return View(follow);
