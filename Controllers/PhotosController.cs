@@ -139,24 +139,24 @@ namespace PhotoApp.Controllers
 
             else
             {
-                foreach (var item in users)
-                {
-                    foreach (var items in followering)
-                    {
-                        if (item.Id != items.Following && items.Id != _userId)
-                        {
-                            if (finalList.Contains(item))
-                            {
+                var followerslistID = new List<string>();
+                //foreach (var item in users)
+                //{
+                //    foreach (var items in followering)
+                //    {
+                //        if (item.Id != items.Following && item.Id != _userId)
+                //        {
+                //            if (finalList.Contains(item))
+                //            {
 
-                            }
-                            else
-                            {
-
-                                finalList.Add((item));
-                            }
-                        }
-                    }
-                }
+                //            }
+                //            else
+                //            {
+                //                finalList.Add((item));
+                //            }
+                //        }
+                //    }
+                //}
 
                 followers.Users = finalList;
             }
