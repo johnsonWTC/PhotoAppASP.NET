@@ -144,7 +144,15 @@ namespace PhotoApp.Controllers
                 {
                 if(item.Id != items.Following && items.Id != _userId)
                     {
+                            if (finalList.Contains(item))
+                            {
+
+                            }
+                            else
+                            {
+
                         finalList.Add((item));
+                            }
                     }
                 }
             }
