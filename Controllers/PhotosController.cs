@@ -142,13 +142,12 @@ namespace PhotoApp.Controllers
             {
                 foreach(var items in users)
                 {
-                if(item.Following != items.Id && items.Id != _userId)
+                if(item.Following != items.Id)
                     {
                         finalList.Add((items));
                     }
                 }
             }
-
            
             followers.Users = finalList;
             }
