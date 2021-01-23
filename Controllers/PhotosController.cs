@@ -151,6 +151,17 @@ namespace PhotoApp.Controllers
                     allusersID.Add(id.Id);
                 }
 
+                foreach(var user in allusersID)
+                {
+                    foreach(var newUser in followinglistID)
+                    {
+                        if(newUser == user)
+                        {
+                            allusersID.Remove(user);
+                        }
+                    }
+                }
+
                 //foreach (var item in users)
                 //{
                 //    foreach (var items in followering)
