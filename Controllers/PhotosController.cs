@@ -139,7 +139,18 @@ namespace PhotoApp.Controllers
 
             else
             {
-                var followerslistID = new List<string>();
+                var followinglistID = new List<string>();
+                var allusersID = new List<string>();
+
+                foreach (var id  in followering)
+                {
+                    followinglistID.Add(id.Following);
+                }
+                foreach (var id in users)
+                {
+                    allusersID.Add(id.Id);
+                }
+
                 //foreach (var item in users)
                 //{
                 //    foreach (var items in followering)
