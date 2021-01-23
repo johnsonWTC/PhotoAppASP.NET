@@ -135,6 +135,7 @@ namespace PhotoApp.Controllers
             {
                 followers.Users = users;
             }
+
             else
             {
             foreach( var item in followering)
