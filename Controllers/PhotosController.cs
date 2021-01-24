@@ -162,6 +162,8 @@ namespace PhotoApp.Controllers
                     }
                 }
 
+                allusersID.Count();
+
                 //foreach (var item in users)
                 //{
                 //    foreach (var items in followering)
@@ -176,11 +178,11 @@ namespace PhotoApp.Controllers
                 //            {
                 //                finalList.Add((item));
                 //            }
-                //        }
+                //        
                 //    }
                 //}
 
-                followers.Users = finalList;
+                followers.Users = users;
             }
             return View(followers);
         }
