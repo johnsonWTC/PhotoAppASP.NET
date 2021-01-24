@@ -141,14 +141,14 @@ namespace PhotoApp.Controllers
             {
                 var followinglistID = new List<string>();
                 var allusersID = new List<string>();
-                foreach (var id in followering)
+                foreach (var ida in followering)
                 {
-                    followinglistID.Add(id.Following);
+                    followinglistID.Add(ida.Following);
                 }
 
                 foreach (var id in users)
                 {
-                    users.Add(id);
+                    allusersID.Add(id);
                 }
                 var test = allusersID;
 
@@ -158,10 +158,12 @@ namespace PhotoApp.Controllers
                     {
                         if(id == t)
                         {
-
+                            test.Remove(id);
                         }
                     }
                 }
+
+                test.Count();
 
                 //foreach (var item in users)
                 //{ 
