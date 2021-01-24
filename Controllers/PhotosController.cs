@@ -153,16 +153,8 @@ namespace PhotoApp.Controllers
 
                 foreach(var user in allusersID)
                 {
-                    foreach(var newUser in followinglistID)
-                    {
-                        if(newUser == user)
-                        {
-                            allusersID.Remove(user);
-                        }
-                    }
+                    foreach(var newUser in )
                 }
-
-                allusersID.Count();
 
                 //foreach (var item in users)
                 //{
@@ -178,11 +170,11 @@ namespace PhotoApp.Controllers
                 //            {
                 //                finalList.Add((item));
                 //            }
-                //        
+                //        }
                 //    }
                 //}
 
-                followers.Users = users;
+                followers.Users = finalList;
             }
             return View(followers);
         }
