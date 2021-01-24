@@ -141,19 +141,8 @@ namespace PhotoApp.Controllers
             {
                 var followinglistID = new List<string>();
                 var allusersID = new List<string>();
-
-                foreach (var id  in followering)
-                {
-                    followinglistID.Add(id.Following);
-                }
-                foreach (var id in users)
-                {
-                    allusersID.Add(id.Id);
-                }
-
-
                 //foreach (var item in users)
-                //{
+                //{ 
                 //    foreach (var items in followering)
                 //    {
                 //        if (item.Id != items.Following && item.Id != _userId)
@@ -175,8 +164,7 @@ namespace PhotoApp.Controllers
             return View(followers);
         }
 
-
-        public IActionResult Follow(string id, string followUserName)
+         public IActionResult Follow(string id, string followUserName)
         {
             // when you click follow call  the follow method on the controller, pass id  and followUserEmail via asp-route 
             //i create a new follow object, then use the id to find user on the db using first or default,
