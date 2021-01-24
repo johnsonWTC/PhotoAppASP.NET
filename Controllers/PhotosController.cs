@@ -151,10 +151,6 @@ namespace PhotoApp.Controllers
                     allusersID.Add(id.Id);
                 }
 
-                foreach(var user in allusersID)
-                {
-                    foreach(var newUser in )
-                }
 
                 //foreach (var item in users)
                 //{
