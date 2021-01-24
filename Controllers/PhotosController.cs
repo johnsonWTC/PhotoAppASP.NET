@@ -148,17 +148,17 @@ namespace PhotoApp.Controllers
 
                 foreach (var id in users)
                 {
-                    allusersID.Add(id);
+                    allusersID.Add(id.Id);
                 }
-                var test = allusersID;
+                var test = new List<string>();
 
                 foreach(var id in allusersID)
                 {
                     foreach(var t in followinglistID)
                     {
-                        if(id == t)
+                        if(id != t)
                         {
-                            test.Remove(id);
+                            test.Add(id);
                         }
                     }
                 }
