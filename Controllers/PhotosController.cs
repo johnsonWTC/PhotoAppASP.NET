@@ -150,7 +150,18 @@ namespace PhotoApp.Controllers
                 {
                     users.Add(id);
                 }
-                var test = 
+                var test = allusersID;
+
+                foreach(var id in allusersID)
+                {
+                    foreach(var t in followinglistID)
+                    {
+                        if(id == t)
+                        {
+
+                        }
+                    }
+                }
 
                 //foreach (var item in users)
                 //{ 
