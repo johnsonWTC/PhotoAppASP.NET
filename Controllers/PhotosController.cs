@@ -172,7 +172,7 @@ namespace PhotoApp.Controllers
                 {
                     foreach (var tests in test)
                     {
-                        if(item.Id == tests)
+                        if(item.Id == tests && _userId != tests)
                         {
                             finalList.Add(item);
                         }
