@@ -132,7 +132,7 @@ namespace PhotoApp.Controllers
 
             var followering = _context.Follows.Where(e => e.Following == _userId).Include(e => e.ApplicationUser).ToList();
             var followers = new UserListViewModel();
-            if (followering.Count() == 0)
+            if (followering.Count() == 1000)
             {
                 followers.Users = users;
             }
