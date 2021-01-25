@@ -143,7 +143,7 @@ namespace PhotoApp.Controllers
                 var allusersID = new List<string>();
                 foreach (var ida in followering)
                 {
-                    followinglistID.Add(ida.Following);
+                    followinglistID.Add(ida.Followed);
                 }
 
                 foreach (var id in users)
@@ -177,7 +177,7 @@ namespace PhotoApp.Controllers
                 {
                     foreach (var tests in test)
                     {
-                        if(item.Id != tests)
+                        if(item.Id == tests)
                         {
                             finalList.Add(item);
                         }
