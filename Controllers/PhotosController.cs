@@ -154,22 +154,17 @@ namespace PhotoApp.Controllers
 
                 foreach(var id in allusersID)
                 {
-                    foreach(var t in followinglistID)
+
+                    if (followinglistID.Contains(id))
                     {
-                        if(id != t)
-                        {
-                            if (test.Contains(id))
-                            {
 
-                            }
-                            else
-                            {
-
-                            test.Add(id);
-                            }
-                        }
                     }
-                }
+                    else{
+                        test.Add(id);
+
+                    }
+                       
+                    }
 
                 test.Count();
 
