@@ -589,3 +589,4 @@ C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\staticwebassets\PhotoA
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.dll
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.pdb
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.genruntimeconfig.cache
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\PhotoApp.csprojAssemblyReference.cache

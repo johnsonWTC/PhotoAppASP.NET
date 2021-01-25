@@ -158,30 +158,32 @@ namespace PhotoApp.Controllers
                     {
                         if(id != t)
                         {
+                            if (test.Contains(id))
+                            {
+
+                            }
+                            else
+                            {
+
                             test.Add(id);
+                            }
                         }
                     }
                 }
 
                 test.Count();
 
-                //foreach (var item in users)
-                //{ 
-                //    foreach (var items in followering)
-                //    {
-                //        if (item.Id != items.Following && item.Id != _userId)
-                //        {
-                //            if (finalList.Contains(item))
-                //            {
+                foreach (var item in users)
+                {
+                    foreach (var tests in test)
+                    {
+                        if(item.Id != tests)
+                        {
+                            finalList.Add(item);
+                        }
+                    }
 
-                //            }
-                //            else
-                //            {
-                //                finalList.Add((item));
-                //            }
-                //        }
-                //    }
-                //}
+                }
 
                 followers.Users = finalList;
             }
