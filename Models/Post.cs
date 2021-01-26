@@ -10,7 +10,11 @@ namespace PhotoApp.Models
         public int PostId { get; set; }
 
         public string PostContent { get; set; }
+        public DateTime DateCreated { get; set; }
 
-        public DateTime time { get; set; }
+        public List<Like> Likes { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
+        public string Id { get; set; }
     }
 }
