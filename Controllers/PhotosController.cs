@@ -176,13 +176,13 @@ namespace PhotoApp.Controllers
 
                 notfollowedUsers.Count();
 
-                foreach (var item in users)
+                foreach (var user in users)
                 {
                     foreach (var tests in notfollowedUsers)
                     {
-                        if(item.Id == tests && _userId != tests)
+                        if(user.Id == tests && _userId != tests)
                         {
-                            finalList.Add(item);
+                            finalList.Add(user);
                         }
                     }
 
