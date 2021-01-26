@@ -143,12 +143,15 @@ namespace PhotoApp.Controllers
 
             // create a list to store all users
                 var allusersID = new List<string>();
+
+            // store people the user follow in a list
                 foreach (var ida in followering)
                 {
                     followinglistID.Add(ida.Followed);
                 }
 
-                foreach (var id in users)
+            // store all users in a list
+            foreach (var id in users)
                 {
                     allusersID.Add(id.Id);
                 }
