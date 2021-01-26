@@ -155,14 +155,16 @@ namespace PhotoApp.Controllers
                 {
                     allusersID.Add(id.Id);
                 }
+
                 var test = new List<string>();
 
                 foreach(var id in allusersID)
                 {
-
+                    
+                // check if user id is not already being followed
                     if (followinglistID.Contains(id))
                     {
-
+                    // if its being followed we do not add to the not followed list
                     }
                     else{
                         test.Add(id);
