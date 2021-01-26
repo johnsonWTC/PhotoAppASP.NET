@@ -156,7 +156,8 @@ namespace PhotoApp.Controllers
                     allusersID.Add(id.Id);
                 }
 
-                var test = new List<string>();
+            //create a list of users not already followed by the current users
+                var notfollowedUsers = new List<string>();
 
                 foreach(var id in allusersID)
                 {
@@ -167,17 +168,17 @@ namespace PhotoApp.Controllers
                     // if its being followed we do not add to the not followed list
                     }
                     else{
-                        test.Add(id);
+                        notfollowedUsers.Add(id);
 
                     }
                        
                     }
 
-                test.Count();
+                notfollowedUsers.Count();
 
                 foreach (var item in users)
                 {
-                    foreach (var tests in test)
+                    foreach (var tests in notfollowedUsers)
                     {
                         if(item.Id == tests && _userId != tests)
                         {
