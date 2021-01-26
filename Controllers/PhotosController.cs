@@ -138,8 +138,10 @@ namespace PhotoApp.Controllers
             var peopleIcanfollow = new UserListViewModel();
 
 
-            //create list 
+            //create list of people you already follow
                 var followinglistID = new List<string>();
+
+            // c
                 var allusersID = new List<string>();
                 foreach (var ida in followering)
                 {
