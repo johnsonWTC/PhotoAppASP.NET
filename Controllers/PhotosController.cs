@@ -130,6 +130,8 @@ namespace PhotoApp.Controllers
             var finalList = new List<IdentityUser>();
             var userId = new List<string>();
 
+
+            // get the list of users you already follow
             var followering = _context.Follows.Where(e => e.Following == _userId).Include(e => e.ApplicationUser).ToList();
             var followers = new UserListViewModel();
 
