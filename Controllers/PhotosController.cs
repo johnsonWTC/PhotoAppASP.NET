@@ -133,7 +133,7 @@ namespace PhotoApp.Controllers
 
             // get the list of users you already follow
             var followering = _context.Follows.Where(e => e.Following == _userId).Include(e => e.ApplicationUser).ToList();
-            var followers = new UserListViewModel();
+            var peopleIcanfollow = new UserListViewModel();
 
                 var followinglistID = new List<string>();
                 var allusersID = new List<string>();
@@ -176,9 +176,9 @@ namespace PhotoApp.Controllers
 
                 }
 
-                followers.Users = finalList;
+                peopleIcanfollow.Users = finalList;
             
-            return View(followers);
+            return View(peopleIcanfollow);
         }
 
          public IActionResult Follow(string id, string followUserName)
