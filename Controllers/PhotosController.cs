@@ -27,10 +27,6 @@ namespace PhotoApp.Controllers
         private readonly IHttpContextAccessor _httpContext;
         private readonly string _userId;
 
-
-
-
-
         public PhotosController(ApplicationDbContext context, IPhotoInterface userInterface, UserManager<ApplicationUser> userManager, IHttpContextAccessor _httpContext)
         {
             //dependacy injection

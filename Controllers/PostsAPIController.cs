@@ -92,6 +92,7 @@ namespace PhotoApp.Controllers
         public async Task<ActionResult<Post>> PostPost(Post post)
         {
             post.DateCreated = DateTime.Now;
+            post.ApplicationUser.Id = _userId;
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
 
