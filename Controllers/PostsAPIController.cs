@@ -16,8 +16,6 @@ namespace PhotoApp.Controllers
     public class PostsAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private readonly ApplicationDbContext _context;
-
 
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContext;
@@ -31,7 +29,6 @@ namespace PhotoApp.Controllers
             _userManager = userManager;
             _context = context;
             _userId = this._userManager.GetUserId(this._httpContext.HttpContext.User);
-            _userService = userInterface;
            
         }
 
