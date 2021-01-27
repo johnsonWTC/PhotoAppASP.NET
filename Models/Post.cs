@@ -15,6 +15,10 @@ namespace PhotoApp.Models
         public DateTime DateCreated { get; set; }
 
         public List<Like> Likes { get; set; }
+
+        public int numberofviews { get; set; }
+
+        public List<Comment> comments { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
         public string Id { get; set; }
