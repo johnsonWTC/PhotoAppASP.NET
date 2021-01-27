@@ -16,11 +16,23 @@ namespace PhotoApp.Controllers
     public class PostsAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
+
+
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IHttpContextAccessor _httpContext;
+        private readonly string _userId;
+
 
 
         public PostsAPIController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IHttpContextAccessor _httpContext)
         {
+            this._httpContext = _httpContext;
+            _userManager = userManager;
             _context = context;
+            _userId = this._userManager.GetUserId(this._httpContext.HttpContext.User);
+            _userService = userInterface;
+           
         }
 
         // GET: api/PostsAPI
