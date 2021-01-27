@@ -17,11 +17,9 @@ namespace PhotoApp.Models
 
         public int commentViews { get; set; }
 
-        public int postID { get; set; }
-    
-
     [JsonIgnore]
         public Post post { get; set; }
+        public int postID { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
         public string Id { get; set; }
