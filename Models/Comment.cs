@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PhotoApp.Models
 {
     public class Comment
     {
+        [Key]
         public int commentID { get; set; }
         public string commentContent { get; set; }
 
@@ -15,8 +18,12 @@ namespace PhotoApp.Models
         public int commentViews { get; set; }
 
         public int postID { get; set; }
+    
 
-        [JsonIgnore]
+    [JsonIgnore]
         public Post post { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
+        public string Id { get; set; }
     }
 }
