@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PhotoApp.Data;
@@ -16,7 +17,8 @@ namespace PhotoApp.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public PostsAPIController(ApplicationDbContext context)
+
+        public PostsAPIController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, IHttpContextAccessor _httpContext)
         {
             _context = context;
         }
