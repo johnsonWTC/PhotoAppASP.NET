@@ -18,6 +18,8 @@ namespace PhotoApp.Data
 
         public DbSet<Like> Likes { get; set; }
 
+        public DbSet<Post> Posts { get; set; }
+
 
     }
 }
