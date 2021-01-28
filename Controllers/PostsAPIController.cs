@@ -80,7 +80,7 @@ namespace PhotoApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Post>> PostPost(Post post)
         {
-            post.DateCreated = DateTime.Today;
+            post.DateCreated = DateTime.Now;
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
 
