@@ -595,3 +595,8 @@ C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Posts\Dele
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Posts\Details.cshtml.g.cs
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Posts\Edit.cshtml.g.cs
 C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Posts\Index.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Create.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Delete.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Details.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Edit.cshtml.g.cs
+C:\Users\jdubula\Desktop\identity\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Index.cshtml.g.cs
