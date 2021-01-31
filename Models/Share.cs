@@ -12,7 +12,7 @@ namespace PhotoApp.Models
         public int ShareId { get; set; }
         public string PhotoOwner { get; set; }
 
-        public string PhotoLiker { get; set; }
+        public string PhotoSharer { get; set; }
 
         public int PhotoId { get; set; }
 
