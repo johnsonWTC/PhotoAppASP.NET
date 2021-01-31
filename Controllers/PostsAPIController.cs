@@ -16,7 +16,6 @@ namespace PhotoApp.Controllers
     public class PostsAPIController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _httpContext;
         private readonly string _userId;
@@ -28,7 +27,7 @@ namespace PhotoApp.Controllers
             this._httpContext = _httpContext;
             _userManager = userManager;
             _context = context;
-            _userId = this._userManager.GetUserId(this._httpContext.HttpContext.User);
+             _userId = this._userManager.GetUserId(this._httpContext.HttpContext.User);
            
         }
 
@@ -92,7 +91,7 @@ namespace PhotoApp.Controllers
         public async Task<ActionResult<Post>> PostPost(Post post)
         {
             post.DateCreated = DateTime.Now;
-            post.ApplicationUser.Id = _userId;
+           post.ApplicationUser.Id = _userId;
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
 
