@@ -20,7 +20,7 @@ namespace PhotoApp.Models
 
         public List<Comment> comments { get; set; }
 
-        public int id { get; set; }
+        public string id { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
     }
