@@ -229,10 +229,10 @@ namespace PhotoApp.Controllers
             // use the id and photoOwner to initiate the object
             //then save like object
             var share = new Share();
-            like.PhotoId = id;
-            like.PhotoLiker = _userId;
+            share.PhotoId = id;
+            share.PhotoLiker = _userId;
             like.PhotoOwner = photoOwner;
-            _context.Likes.Add(like);
+            _context.Share.Add(share);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
