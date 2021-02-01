@@ -230,9 +230,9 @@ namespace PhotoApp.Controllers
             //then save like object
             var share = new Share();
             share.PhotoId = id;
-            share.PhotoLiker = _userId;
+            share.PhotoSharer = _userId;
             like.PhotoOwner = photoOwner;
-            _context.Share.Add(share);
+            _context.Shares.Add(share);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
