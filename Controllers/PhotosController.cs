@@ -228,7 +228,7 @@ namespace PhotoApp.Controllers
             // for the share functionality, i pass the id and photoOwner using asp-route, then crete a share object
             // use the id and photoOwner to initiate the object
             //then save like object
-            var like = new Like();
+            var share = new Like();
             like.PhotoId = id;
             like.PhotoLiker = _userId;
             like.PhotoOwner = photoOwner;
