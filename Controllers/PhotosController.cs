@@ -231,7 +231,7 @@ namespace PhotoApp.Controllers
             var share = new Share();
             share.PhotoId = id;
             share.PhotoSharer = _userId;
-            like.PhotoOwner = photoOwner;
+            share.PhotoOwner = photoOwner;
             _context.Shares.Add(share);
             _context.SaveChanges();
 
